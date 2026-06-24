@@ -1,0 +1,102 @@
+{% extends "candidate_page.html" %}
+
+{% block title %}Search and Apply for Jobs{% endblock %}
+
+{% block content %}
+<div class="container">  
+    <!-- Add flash messages section -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h1>Available Jobs</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Job ID</th>
+                <th>Job Name</th>
+                <th>Location</th>
+                <th>Number of Posts</th>
+                <th>Branch</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if jobs %}
+                {% for job in jobs %}
+                <tr>
+                    <td>{{ job.job_id }}</td>
+                    <td>{{ job.job_name }}</td>
+                    <td>{{ job.job_location }}</td>
+                    <td>{{ job.number_of_posts }}</td>
+                    <td>{{ job.branch }}</td>
+                    <td>
+                        {% if job.job_id|string in applied_job_ids %}
+                            <button class="btn btn-secondary" disabled>Already Applied</button>
+                        {% else %}
+                            <a href="{{ url_for('candidate_search_and_apply1', job_id=job.job_id, job_name=job.job_name, job_branch=job.branch) }}" 
+                               class="btn btn-primary">Apply</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="6">No jobs found.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin-left: 50px;
+        margin: 20px;
+        font-size: 14px; /* Smaller font size */
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    th, td {
+        padding: 8px; /* Smaller padding */
+        text-align: left;
+        font-size: 14px; /* Smaller font size */
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Add styles for flash messages */
+    .alert {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+        cursor: not-allowed;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "admin_page.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container1">
+    <h1 class="dashboard-title">Admin Dashboard</h1>
+    <div class="row dashboard-row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Branch Wise Students</h5>
+                    <p class="card-text">BCA: {{ bca_count }}</p>
+                    <p class="card-text">BCom: {{ bcom_count }}</p>
+                    <p class="card-text">BA: {{ ba_count }}</p>
+                    <p class="card-text">MCom: {{ mcom_count }}</p>
+                    <p class="card-text">MCA: {{ mca_count }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Companies Registered</h5>
+                    <p class="card-text">{{ company_count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add new card for total jobs -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Jobs Posted</h5>
+                    <p class="card-text">{{ job_count }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add new card for total applications -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Job Applications</h5>
+                    <p class="card-text">{{ applications_count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Container Styling */
+    .container1 {
+        padding: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Dashboard Title */
+    .dashboard-title {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 30px;
+        font-weight: 600;
+    }
+
+    /* Row Styling */
+    .dashboard-row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    /* Card Styling */
+    .card {
+        margin: 15px 0;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Card Body */
+    .card-body {
+        padding: 20px;
+    }
+
+    /* Card Title */
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    /* Card Text */
+    .card-text {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+        .dashboard-row {
+            flex-direction: column;
+        }
+
+        .col-md-6 {
+            max-width: 100%;
+        }
+
+        .dashboard-title {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+{% endblock %}

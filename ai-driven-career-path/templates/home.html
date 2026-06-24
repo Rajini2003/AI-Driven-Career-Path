@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Usain Bolt Logo">
+        </div>
+        <ul>
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="/company_registration">Company Registration</a></li>
+            <li class="nav-item"><a class="nav-link" href="/candidate_registration">Candidate Registration</a></li>
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="/placed_students">Placed Students</a></li>
+        </ul>
+    </nav>
+
+    <!-- Fullscreen Carousel -->
+    <div class="carousel">
+
+        <div class="carousel-caption">
+            <h1>Welcome To AI Driven Career Path</h1>
+            <p><h2>An AI-driven path refers to a strategic approach where artificial intelligence is utilized to guide decision-making, optimize processes, and create value across various domains. This involves leveraging AI technologies like machine learning, natural language processing, and generative AI to analyze data, predict outcomes, and automate tasks. Organizations often adopt AI-driven paths to enhance efficiency, improve customer experiences, and innovate in their respective industries.</h2></p>
+            
+                
+        </div>
+
+        <div class="carousel-controls">
+            <i class="fa fa-chevron-left prev"></i>
+            <i class="fa fa-chevron-right next"></i>
+        </div>
+
+        <!-- Carousel Slides -->
+        <div class="carousel-slide active">
+            <img src="{{ url_for('static', filename='images/img2.jpg') }}" alt="Slide 1">
+        </div>
+
+        <div class="carousel-slide">
+            <img src="{{ url_for('static', filename='images/img3.jpg') }}" alt="Slide 2">
+        </div>
+
+        <div class="carousel-slide">
+            <img src="{{ url_for('static', filename='images/img4.jpg') }}" alt="Slide 3">
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

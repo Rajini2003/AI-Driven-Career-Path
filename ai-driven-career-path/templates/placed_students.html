@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Usain Bolt Logo">
+        </div>
+        <ul>
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="/company_registration">Company Registration</a></li>
+            <li class="nav-item"><a class="nav-link" href="/candidate_registration">Candidate Registration</a></li>
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="/placed_students">Placed Students</a></li>
+        </ul>
+    </nav>
+
+        <br>
+
+        <img src="{{ url_for('static', filename='images/placed.jpg') }}" alt="Placed Students" style="width: 800px; height: auto; margin-left: 30%; margin: top 20%; ">
+
+    
+
+</body>
+</html>

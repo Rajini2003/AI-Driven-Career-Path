@@ -1,0 +1,43 @@
+{% extends "admin_page.html" %}
+
+{% block title %}Company Details{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Company Details</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Address</th>
+                <th>Email ID</th>
+                <th>Website</th>
+                <th>Contact Number</th>
+                <th>Username</th>
+                <!-- Add more table headers if there are more fields in the company table -->
+            </tr>
+        </thead>
+        <tbody>
+            {% if companies %}
+                {% for company in companies %}
+                <tr>
+                    <td>{{ company.CompanyName }}</td>
+                    <td>{{ company.Address }}</td>
+                    <td>{{ company.EmailID }}</td>
+                    <td>{{ company.Website }}</td>
+                    <td>{{ company.ContactNumber }}</td>
+                    <td>{{ company.Username }}</td>
+                    <!-- Add more table data if there are more fields in the company table -->
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="6">No companies found.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

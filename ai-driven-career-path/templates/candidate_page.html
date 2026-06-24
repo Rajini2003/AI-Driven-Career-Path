@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/userdashboard.css') }}">
+  <title>Candidate page</title>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div>
+      <h1>Candidate page</h1>
+      <ul>
+        <li><a href="/candidate_home" class="btn btn-primary">Home</a></li>
+        <li><a href="/candidate_dashboard" class="btn btn-primary">Dashboard</a></li>
+        <li><a href="/candidate_search_and_apply" class="btn btn-primary">Search & Apply</a></li>
+        <li><a href="/candidate_chatbot" class="btn btn-primary">Chatbot</a></li>
+        <li><a href="/candidate_match_my_skill_test" class="btn btn-primary">Match My Skill Test</a></li>
+        <li><a href="/candidate_job_apply_history" class="btn btn-primary">Job Apply History</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1SkCOcAS0Kqvuz-MJkkjbFr1GSue6Ms6m" class="btn btn-primary">Previous Interview Questions</a></li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <a href="/logout" class="btn btn-danger">Logout</a>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Top Header Row -->
+  <header>
+    <div class="top-row">
+      <h1 class="page-title">AI Driven Career Path</h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function showSection(sectionId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.main-content');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Show the selected section
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    // Prevent going back to the user page after a successful login
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+{% extends "candidate_page.html" %}
+
+{% block title %}Application History{% endblock %}
+
+{% block content %}
+<div class="container">  
+    <!-- Flash messages section -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h1>My Job Application History</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Job ID</th>
+                <th>Job Name</th>
+                <th>Branch</th>
+                <th>Name</th>
+                <th>USN Number</th>
+                <th>Email ID</th>
+                <th>Mobile Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if applications %}
+                {% for app in applications %}
+                <tr>
+                    <td>{{ app.job_id }}</td>
+                    <td>{{ app.job_name }}</td>
+                    <td>{{ app.branch }}</td>
+                    <td>{{ app.name }}</td>
+                    <td>{{ app.usn_number }}</td>
+                    <td>{{ app.email_id }}</td>
+                    <td>{{ app.mob }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="7" class="text-center">No applications found.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin-left: 50px;
+        margin: 20px;
+        font-size: 14px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        font-size: 14px;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .alert {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+</style>
+{% endblock %}

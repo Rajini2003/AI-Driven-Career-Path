@@ -1,0 +1,49 @@
+{% extends "admin_page.html" %}
+
+{% block title %}Candidate Details{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Candidate Details</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>USN Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Mobile No</th>
+                <th>Email</th>
+                <th>Tenth Percentage</th>
+                <th>Twelfth Percentage</th>
+                <th>Branch</th>
+                <!-- Add more table headers if there are more fields in the candidate table -->
+            </tr>
+        </thead>
+        <tbody>
+            {% if candidates %}
+                {% for candidate in candidates %}
+                <tr>
+                    <td>{{ candidate.USNNumber }}</td>
+                    <td>{{ candidate.FirstName }}</td>
+                    <td>{{ candidate.LastName }}</td>
+                    <td>{{ candidate.Gender }}</td>
+                    <td>{{ candidate.MobileNumber }}</td>
+                    <td>{{ candidate.EmailID }}</td>
+                    <td>{{ candidate.TenthPercentage }}</td>
+                    <td>{{ candidate.TwelfthPercentage }}</td>
+                    <td>{{ candidate.Branch }}</td>
+                    <!-- Add more table data if there are more fields in the candidate table -->
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="9">No candidates found.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

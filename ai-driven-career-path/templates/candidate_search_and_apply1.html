@@ -1,0 +1,59 @@
+{% extends "candidate_page.html" %}
+
+{% block title %}Job Application{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="container">
+        <h1 class="text-center mb-4">Job Application</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Job Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><strong>Job ID:</strong> {{ job_id }}</p>
+                        <p class="card-text"><strong>Job Name:</strong> {{ job_name }}</p>
+                        <p class="card-text"><strong>Job Branch:</strong> {{ job_branch }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Candidate Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><strong>Name:</strong> {{ session['firstname'] }}</p>
+                        <p class="card-text"><strong>USN Number:</strong> {{ session['username'] }}</p>
+                        <p class="card-text"><strong>Email:</strong> {{ session['emailid'] }}</p>
+                        <p class="card-text"><strong>Mobile:</strong> {{ session['mobilenumber'] }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .card {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .card-header {
+        background-color: #f8f9fa;
+    }
+</style>
+{% endblock %}
